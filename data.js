@@ -13,7 +13,7 @@ export const products = [
     amount: 1,
     isBought: false,
     price: 1,
-    path: '/assets/svg/apricot.svg'
+    path: './assets/svg/apricot.svg'
   },
   {
     id: 'avocado',
