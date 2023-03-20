@@ -1,0 +1,394 @@
+/* raleway-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/raleway-v28-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+       url('./fonts/raleway-v28-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* raleway-italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 400;
+  src: url('./fonts/raleway-v28-latin-italic.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+       url('./fonts/raleway-v28-latin-italic.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* raleway-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./fonts/raleway-v28-latin-700.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+       url('./fonts/raleway-v28-latin-700.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* raleway-700italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 700;
+  src: url('./fonts/raleway-v28-latin-700italic.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+       url('./fonts/raleway-v28-latin-700italic.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+:root {
+  --base-color: #f87171;
+  --shadow-color: #9ca3af; 
+  --card-color: #f3f4f6;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Raleway';
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  background-color: #e2e8f0;
+}
+p {
+  margin: 0;
+}
+
+h1, h2 {
+  padding: 0 20px;
+}
+
+h1 {
+  text-align: center;
+}
+ul, li {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.wrapper {
+  min-width: 440px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.shopping-list {
+  max-width: 500px;
+  min-width: 440px;
+  margin: 20px auto;
+  padding: 15px;
+  border-radius: 14px;
+  background-color: var(--card-color);
+  box-shadow: 0px 0px 10px 0px var(--shadow-color);
+}
+
+.list__item {
+  padding: 5px;
+  display: flex; 
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 15px;     
+}
+
+.item__name {
+  flex: 9;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.item__img-wrapper {
+  width: 35px;
+  height: 35px;
+}
+
+.item__img-wrapper > img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.item__amount {
+  flex: 1;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid var(--base-color);
+  background-color: transparent;
+}
+
+.item__amount:focus {
+  outline: none;
+}
+
+.item__purchase-status {
+  flex: 1;
+}
+
+.item__purchase-status > label {
+  width: 100%;
+  height: 100%;
+  /* display: inline-block; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item__checkmark {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border: 1px solid var(--base-color);
+  box-shadow: 0px 0px 6px 0px var(--base-color)  ;
+  border-radius: 7px;
+  cursor: pointer;
+  position: relative;
+}
+
+.item__checkmark::after {
+  content: "";
+  display: none;
+  position: absolute;
+  left: 9px;
+  top: 2px;
+  width: 5px;
+  height: 16px;
+  border: solid #ef4444;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+input[type="checkbox"]:checked ~ .item__purchase-status .item__checkmark::after {
+  display: block;
+}
+
+.shopping-list-form {
+  font-family: 'Raleway';
+  margin-bottom: 20px;
+}
+
+.total {
+  font-weight: 700;
+  font-style: italic;
+}
+
+.button {
+  border-radius: 7px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  background-color: var(--base-color);
+  color: var(--card-color);
+}
+
+.button:active {
+  transform: scale(0.95);
+}
+
+/*------------------------SHOP----------------------*/
+.shop {
+  padding: 20px;
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, 100px);
+  grid-template-rows: repeat(auto-fit, 145px);
+  gap: 40px 20px;
+}
+
+.shop__item {
+  max-width: 100px;
+  width: 100%;
+  border-radius: 14px;
+  display: flex;
+  align-items: stretch;
+  position: relative;
+}
+
+.shop__item__add-button {
+  border-radius: 50%;
+  padding: 5px;
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  border: none;
+  background-color: var(--card-color);
+}
+
+.shop__item__add-button:active {
+  scale: 0.95;
+}
+
+.shop__item__add-button > i {
+  font-size: 20px;
+  pointer-events: none;
+  color: var(--base-color);
+}
+
+.product {
+  width: 100%;
+  margin: 0;
+  padding: 15px;
+  box-sizing: border-box;
+
+  background-color: var(--card-color);
+  box-shadow: 0px 0px 10px 0px var(--shadow-color);
+  border-radius: 14px;
+ 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; 
+  z-index: 2;
+
+  transition: transform .4s ease-in-out;
+}
+
+.product > img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.product > p {
+  margin: 5px;
+  text-align: center;
+}
+
+.shop__item:hover > .product {
+  transform: translateY(35px);
+  transition: transform .4s ease-in-out;
+}
+
+/*----------------RECEIPT---------------------*/
+.receipt-total {
+  width: 250px;
+  margin: 0 auto;
+}
+
+.receipt {
+  background-color: var(--card-color);
+  box-shadow: 0px 0px 10px 0px var(--shadow-color);
+  padding: 15px;
+  font-size: 12px;
+}
+
+hr {
+  border: 2px dotted var(--shadow-color);
+}
+
+.receipt > h3 {
+  text-align: center;
+}
+
+.receipt__header-title {
+  text-align: center;
+  font-weight: 700;
+}
+
+.receipt__purchases-header {
+  font-weight: 700;
+}
+
+.purchases__element {
+  margin-bottom: 3px;
+}
+
+.receipt__purchases-header,
+.purchases__element {
+  display: flex;
+  flex-shrink: 0;
+  gap: 10px;
+}
+
+.receipt__purchases-header > span:nth-child(1),
+.purchases__element > span:nth-child(1) {
+  flex: 3;
+  flex-shrink: 0;
+}
+
+.receipt__purchases-header > span:nth-child(2),
+.purchases__element > span:nth-child(2) {
+  text-align: center;
+  flex: 2;
+  flex-shrink: 0;
+}
+
+.receipt__purchases-header > span:nth-child(3),
+.purchases__element > span:nth-child(3) {
+  text-align: center;
+  flex: 2;
+  flex-shrink: 0;
+}
+
+.receipt__purchases-header > span:nth-child(4),
+.purchases__element > span:nth-child(4) {
+  text-align: right;
+  flex: 2;
+  flex-shrink: 0;
+}
+
+.receipt__total {
+  font-weight: 700;
+}
+
+.receipt__purchases-header,
+.receipt__bank-card, 
+.receipt__approval-code, 
+.receipt__total {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.receipt__footer-title {
+  font-weight: 700;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.receipt__barcode {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.receipt__barcode > img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.address,
+.phone {
+  text-align: center;
+}
+
+.average-cost,
+.most-expensive-purchase {
+  margin-bottom: 20px;
+}
+
+.average-cost-value,
+.most-expensive-purchase-value {
+  margin-left: 30px;
+  font-style: italic;
+}
+
+button[disabled] {
+  opacity: 0.5;
+}
